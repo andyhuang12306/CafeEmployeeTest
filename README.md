@@ -1,4 +1,4 @@
-## Café Employee ManageSystem Demo
+## Café Employee Management System Demo
 
 This is a demo system for managing café and employee. It includes backend(a SQLite database file inside) and frontend. Backend is building on python FastApi. Frontend is building on React with React-Router for navigation, React-Redux for state management, Antd for UI components and is bootstrapped with Vite.
 
