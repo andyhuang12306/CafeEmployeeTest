@@ -1,0 +1,5 @@
+fastapi==0.111.1
+fastapi-middleware==0.1.0
+python-multipart==0.0.9
+numpy==2.0.1
+pandas==2.2.2

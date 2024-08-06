@@ -1,0 +1,34 @@
+services:
+
+  frontend:
+    build: ./frontend
+    container_name: frontend_c
+    ports:
+      - '3000:3000'
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend/src
+          target: /frontend/src
+        - action: rebuild
+          path: ./frontend/package.json
+          target: /frontend/package.json
+
+  backend:
+    build: ./backend
+    container_name: backend_c
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./backend/app/employee_cafe.db:/backend/app/employee_cafe.db
+      - ./backend/files:/backend/files
+    develop:
+      watch:
+        - action: sync
+          path: ./backend/app
+          target: /backend/app
+        - action: rebuild
+          path: ./backend/requirements.txt
+          target: /backend/requirements.txt
+    command: fastapi run /backend/app/main.py --host 0.0.0.0 --port 8000 --reload
+    restart: always
